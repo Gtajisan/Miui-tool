@@ -1,0 +1,26 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "
+https://github.com/offici5l/MiTool
+"
+echo "1. Flash-Fastboot-ROM"
+echo "2. Flash-Recovery-ROM"
+echo "3. Unlock-Bootloader"
+echo "4. Root"
+
+read -p "
+Enter your choice (1/2/3/4): " choice what you need 
+
+if [ "$choice" == "1" ]; then
+    python3 "$PREFIX/bin/flashfastbootrom.py"
+elif [ "$choice" == "2" ]; then
+    python3 "$PREFIX/bin/flashrecoveryrom.py"
+elif [ "$choice" == "3" ]; then
+    python3 "$PREFIX/bin/unlockbootloader.py"
+elif [ "$choice" == "4" ]; then
+    python3 "$PREFIX/bin/root.py"
+else
+    echo "
+Invalid choice
+"
+fi
