@@ -16,7 +16,7 @@ text_to_print = """
 " Once the account is successfully bound, you'll see a message: Added successfully "
 """
 
-input(colored(f"\n{'='*15}github.com/offici5l/MiTool{'='*15}\n{text_to_print}\n{'='*56}\n", 'green') + "\nIf you complete the steps successfully, press Enter")
+input(colored(f"\n{'='*15}😹Create by FARHAN-MUH-TASIM💛🥺{'='*15}\n{text_to_print}\n{'='*56}\n", 'green') + "\nIf you complete the steps successfully, press Enter")
 
 filename = "/sdcard/Download/account_info.txt"
 
