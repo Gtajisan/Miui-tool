@@ -4,7 +4,7 @@
 
 without pc(with termux)
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE) [![channel icon](https://img.shields.io/badge/-telegram-red?color=white&logo=telegram&logoColor=blue)](https://t.me/Gtajisan_Channel)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE) [![channel icon](https://img.shields.io/badge/-telegram-red?color=white&logo=telegram&logoColor=blue)](https://t.me/farhan_muh_tasim)
 
 <div align="left">
 
