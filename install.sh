@@ -46,13 +46,13 @@ else
     pip install termcolor
 fi
 
-files=("mitool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py")
+files=("Miui-tool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py")
 
 for file in "${files[@]}"; do
-    curl -s "https://raw.githubusercontent.com/offici5l/MiTool/master/$file" -o "$PREFIX/bin/$file" &&
+    curl -s "https://raw.githubusercontent.com/offici5l/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
     chmod +x "$PREFIX/bin/$file"
 done
 
 echo -e "
-use command: \033[32mmitool\033[0m
+use command: \033[32mMiui-tool\033[0m
 "
