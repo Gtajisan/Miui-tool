@@ -49,7 +49,7 @@ fi
 files=("Miui-tool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py")
 
 for file in "${files[@]}"; do
-    curl -s "https://raw.githubusercontent.com/offici5l/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
+    curl -s "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
     chmod +x "$PREFIX/bin/$file"
 done
 
