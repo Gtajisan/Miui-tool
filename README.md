@@ -28,6 +28,7 @@ Miui-tool is a tool to retrieve the encryptData(token) for Xiaomi devices, with 
 <b>2.Install </b> <a href="https://github.com/termux/termux-api/releases/download/v0.50.1/termux-api_v0.50.1+github-debug.apk">Termux API</a>
 
 **make sure watch these video to start tool**
+
 <b>1.YouTube video watch  </b> <a href="https://youtu.be/YaoHZm54Mk4?si=xJpITTymrjKgfGCz">youtube</a>
 
 3.From termux command line:
