@@ -8,13 +8,13 @@ echo "
                 [*] FACEBOOK    : @FARHAN MUH TASIM
 
 "
-echo "1.\033[0;33m Flash-Fastboot-ROM"
-echo "2.\033[0;31m Flash-Recovery-ROM"
-echo "3.\033[0;33m Unlock-Bootloader"
-echo "4.\033[0;31m Root"
+echo "1. Flash-Fastboot-ROM"
+echo "2. Flash-Recovery-ROM"
+echo "3. Unlock-Bootloader"
+echo "4. Root"
 
 read -p "
-Enter your choice (1/2/3/4): " \033[0;31m choice what you need 
+Enter your choice (1/2/3/4): " choice what you need 
 
 if [ "$choice" == "1" ]; then
     python3 "$PREFIX/bin/flashfastbootrom.py"
