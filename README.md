@@ -37,7 +37,7 @@ Miui-tool is a tool to retrieve the encryptData(token) for Xiaomi devices, with 
 termux-setup-storage
   ```
   ```bash
-curl -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/install.sh | bash
+curl -m 0 https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/install.sh | bash
   ```
 
 **Usage:**
