@@ -16,7 +16,7 @@ text_to_print = """
 " Once the account is successfully bound, you'll see a message: Added successfully "
 """
 
-input(colored(f"\n{'='*15}😹Create by FARHAN-MUH-TASIM💛🥺{'='*15}\n{text_to_print}\n{'='*56}\n", 'green') + "\nIf you complete the steps successfully, press Enter")
+input(colored(f"\n{'='*15}github.com/Gtajisan/Miui-tool{'='*15}\n{text_to_print}\n{'='*56}\n", 'green') + "\nIf you complete the steps successfully, press Enter")
 
 filename = "/sdcard/Download/account_info.txt"
 
@@ -24,7 +24,7 @@ while os.path.isfile(filename):
     pr = input(f"\ndo you want to use previous information in \033[92m{filename}\033[0m (yes/no) ? : ").lower()
     if pr == "yes":
         break
-    elif use_previous == "no":
+    elif pr == "no":
         os.remove(filename)
         break
     else:
@@ -68,9 +68,8 @@ if "wb_value:" not in open(filename).read():
     wbinput = input("\nEnter Link: ")
     wbinputmatch = wbinput.split('sts?d=')[1].split('&ticket')[0]
     if wbinputmatch:
-        wbvalue = wbinputmatch.group(0).split('=')[1]
         with open(filename, "a") as file:
-            file.write(f"\nwb_value: {wbvalue}\n")
+            file.write(f"\nwb_value: {wbinputmatch}\n")
     else:
         print("Invalid URL")
         exit()
