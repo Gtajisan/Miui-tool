@@ -89,7 +89,7 @@ for file in "${files[@]}"; do
     chmod +x "$PREFIX/bin/$file"
 done
 
-version=$(curl -m 0 -s https://raw.githubusercontent.com/offici5l/MiTool/master/mitoolV | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
+version=$(curl -m 0 -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/Miui-toollV | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
 printf "
 \e[1;32m[Current Version:%s]\e[0m\n" "$version"
 
