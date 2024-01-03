@@ -1,58 +1,98 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-yes | pkg update && yes | pkg upgrade
+echo -e "\033[32mpkg update ...\033[0m" && yes | pkg update
+echo -e "\033[32mpkg upgrade ...\033[0m" && yes | pkg upgrade
 
-if command -v termux-adb &>/dev/null || command -v termux-fastboot &>/dev/null; then
-    echo "adb and fastboot is installed."
+if [ ! -f "$PREFIX/var/lib/dpkg/info/openssl-tool.list" ]; then
+  yes | pkg install openssl-tool
+  yes | pkg install openssl
 else
-    yes | pkg remove termux-adb &>/dev/null
-    curl -s https://raw.githubusercontent.com/nohajc/termux-adb/master/install.sh | bash
-    mv $PREFIX/bin/termux-fastboot $PREFIX/bin/fastboot && mv $PREFIX/bin/termux-adb $PREFIX/bin/adb
+  echo -e "\033[32mopenssl-tool is installed.\033[0m"
 fi
 
-if command -v pv &>/dev/null; then
-    echo "pv is installed."
+if [ ! -f "$PREFIX/share/doc/gnupg/OpenPGP" ]; then
+  yes | pkg install gnupg
 else
-    pkg install pv
+  echo -e "\033[32mgnupg is installed.\033[0m"
 fi
 
-if command -v python &>/dev/null || command -v python3 &>/dev/null; then
-    echo "Python is installed."
+if [ ! -f "$PREFIX/bin/coreutils" ]; then
+  yes | pkg install coreutils
 else
-    yes | pkg install python
+  echo -e "\033[32mcoreutils is installed.\033[0m"
 fi
 
-if python3 -c "import requests" &>/dev/null || python -c "import requests" &>/dev/null; then
-    echo "requests is installed."
+if [ ! -f "$PREFIX/bin/wget" ]; then
+  yes | pkg install wget
 else
-    pip install requests
+  echo -e "\033[32mwget is installed.\033[0m"
 fi
 
-if python3 -c "import pyshorteners" &>/dev/null; then
-    echo "pyshorteners is installed."
+if [ ! -f "$PREFIX/bin/pv" ]; then
+  yes | pkg install pv
 else
-    pip3 install pyshorteners
+  echo -e "\033[32mpv is installed.\033[0m"
 fi
 
-if python3 -c "import Cryptodome" &>/dev/null; then
-    echo "pycryptodomex is installed."
+if [ ! -f "$PREFIX/bin/python" ]; then
+  yes | pkg install python
 else
-    pip3 install pycryptodomex
+  echo -e "\033[32mpython is installed.\033[0m"
 fi
 
-if python -c "import termcolor" &>/dev/null || python3 -c "import termcolor" &>/dev/null; then
-    echo "termcolor is installed."
+if [ ! -f "$PREFIX/lib/python3.11/site-packages/requests/sessions.py" ]; then
+  yes | pip install requests
 else
-    pip install termcolor
+  echo -e "\033[32mrequests is installed.\033[0m"
 fi
 
-files=("Miui-tool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py")
+if [ ! -f "$PREFIX/lib/python3.11/site-packages/pyshorteners/base.py" ]; then
+  yes | pip3 install pyshorteners
+else
+  echo -e "\033[32mpyshorteners is installed.\033[0m"
+fi
+
+if [ ! -f "$PREFIX/lib/python3.11/site-packages/Cryptodome/Random/random.py" ]; then
+  yes | pip3 install pycryptodomex
+else
+  echo -e "\033[32mpycryptodomex is installed.\033[0m"
+fi
+
+if [ ! -f "$PREFIX/lib/python3.11/site-packages/termcolor/termcolor.py" ]; then
+  yes | pip install termcolor
+else
+  echo -e "\033[32mtermcolor is installed.\033[0m"
+fi
+
+echo -e "\033[32mapt-get update ...\033[0m" && yes | apt-get update > /dev/null 2>&1
+echo -e "\033[32mapt-get upgrade ...\033[0m" && yes | apt-get upgrade > /dev/null 2>&1
+
+if [ ! -f "$PREFIX/etc/apt/sources.list.d/termux-adb.list" ]; then
+  mkdir -p $PREFIX/etc/apt/sources.list.d
+  echo -e "deb https://nohajc.github.io termux extras" > $PREFIX/etc/apt/sources.list.d/termux-adb.list
+  wget -qP $PREFIX/etc/apt/trusted.gpg.d https://nohajc.github.io/nohajc.gpg
+  yes | apt update
+  yes | apt install termux-adb
+  cp $PREFIX/bin/termux-adb $PREFIX/bin/adb && cp $PREFIX/bin/termux-fastboot $PREFIX/bin/fastboot
+else
+  echo -e "\033[32madb&fastboot is installed.\033[0m"
+  echo -e "\033[32mupdate adb&fastboot ...\033[0m"
+  yes | apt install termux-adb > /dev/null 2>&1
+  cp $PREFIX/bin/termux-adb $PREFIX/bin/adb && cp $PREFIX/bin/termux-fastboot $PREFIX/bin/fastboot
+fi
+
+files=("mitool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py" "Miui-toollV")
 
 for file in "${files[@]}"; do
-    curl -s "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
+    echo -e "\033[32mupdate $file...\033[0m"
+    curl -m 0 "https://raw.githubusercontent.com/offici5l/MiTool/master/$file" -o "$PREFIX/bin/$file" &&
     chmod +x "$PREFIX/bin/$file"
 done
 
-echo -e "
-use command: \033[32mMiui-tool\033[0m
+version=$(curl -m 0 -s https://raw.githubusercontent.com/offici5l/MiTool/master/mitoolV | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
+printf "
+\e[1;32m[Current Version:%s]\e[0m\n" "$version"
+
+printf "
+use command: \e[1;32mMiui-tool\e[0m\n
 "
