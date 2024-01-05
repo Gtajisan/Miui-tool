@@ -22,7 +22,14 @@ else
     echo
 fi
 
-echo
+echo            [*] NAME        : FARHAN MUH TASIM
+                [*] WORK ONLY   : XIAOMI ALL Device 
+                [*] AUTHOR      : Farhan muh tasim
+                [*] Version     : FARHAN2.0
+                [*] FACEBOOK    : @FARHAN MUH TASIM
+
+
+
 echo "1. Flash-Fastboot-ROM"
 echo "2. Flash-Recovery-ROM"
 echo "3. Unlock-Bootloader"
