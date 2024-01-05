@@ -17,6 +17,7 @@ Miui-tool is a tool to retrieve the encryptData(token) for Xiaomi devices, with 
 - [x] [Flash Fastboot ROM]
 - [x] [Flash Recovery ROM]
 - [x] [Root]
+- [x] [Flash-Custom-Recovery]
 - [x] [...]
 
 <div align="left">
