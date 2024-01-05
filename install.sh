@@ -83,17 +83,13 @@ fi
 
 files=("mitool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py" "flashcustomrecovery.py" "Miui-tool")
 
-
 for file in "${files[@]}"; do
     echo -e "\033[32mupdate $file...\033[0m"
-    curl -m 0 "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
+    curl -# "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
     chmod +x "$PREFIX/bin/$file"
 done
 
-version=$(curl -m 0 -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/Miui-toollV | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
-printf "
-\e[1;32m[Current Version:%s]\e[0m\n" "$version"
 
 printf "
-use command: \e[1;32mMiui-tool\e[0m\n
+hello bokacd use command: \e[1;32mMiui-tool\e[0m\n
 "
