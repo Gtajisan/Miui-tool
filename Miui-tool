@@ -16,7 +16,7 @@ if [ "$(printf "$current_version\n$latest_version" | sort -V | tail -n 1)" != "$
 ay abat skip prach enter new update available!:\n \e[1;32m$update\e[0m\n
 "
     read -p $"(type u to update or Enter to skip..)
-update MiTool? : " u
+update Miui-tool? : " u
     if [ "$u" == "u" ]; then
         curl -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/install.sh | sed -n '/files=("Miui-tool"/,/^done/p' | bash
         Miui-tool
