@@ -81,15 +81,15 @@ else
   cp $PREFIX/bin/termux-adb $PREFIX/bin/adb && cp $PREFIX/bin/termux-fastboot $PREFIX/bin/fastboot
 fi
 
-files=("mitool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py" "flashcustomrecovery.py" "Miui-tool")
+files=("mitool" "flashfastbootrom.py" "unlockbootloader.py" "flashrecoveryrom.py" "root.py" "flashcustomrecovery.py" "Miui-toollV")
 
 for file in "${files[@]}"; do
     echo -e "\033[32mupdate $file...\033[0m"
-    curl -# "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
+    curl "https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/$file" -o "$PREFIX/bin/$file" &&
     chmod +x "$PREFIX/bin/$file"
 done
 
 
 printf "
-hello bokacd use command: \e[1;32mMiui-tool\e[0m\n
+hello boka cd use command: \e[1;32mMiui-tool\e[0m\n
 "
