@@ -91,5 +91,5 @@ done
 
 
 printf "
-hello boka cd use command: \e[1;32mMiui-tool\e[0m\n
+ara boka cd use command: \e[1;32mMiui-tool\e[0m\n
 "
