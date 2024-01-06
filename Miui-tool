@@ -4,22 +4,22 @@ echo "
                 [*] NAME        : FARHAN MUH TASIM
                 [*] WORK ONLY   : XIAOMI ALL Device 
                 [*] AUTHOR      : Farhan muh tasim
-                [*] Version     : FARHAN2.0
-                [*] FACEBOOK    : @FARHAN MUH TASIM"
-current_version=$(cat "$PREFIX/bin/mitoolV" | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
-latest_version=$(curl -m 3 -s https://raw.githubusercontent.com/Gtajisan//Miui-tool/master/Miui-toollV | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
+                [*] Version     : 4....
+                [*] FACEBOOK    : @FARHAN MUH TASIM""
+current_version=$(cat "$PREFIX/bin/Miui-toollV" | sed -n '1s/[^0-9.]//gp')
+latest_version=$(curl -m 3 -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/Miui-toollV | sed -n '1s/[^0-9.]//gp')
 printf "\e[1;32mVersion [current:%s | latest:%s]\e[0m\n" "$current_version" "$latest_version"
 
 if [ "$(printf "$current_version\n$latest_version" | sort -V | tail -n 1)" != "$current_version" ]; then
-    update=$(curl -s https://raw.githubusercontent.com//Gtajisan/MiTool/master/mitoolV | awk '/\[/,/\]/{if (!/\[|\]/) print}')
+    update=$(curl -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/Miui-toollV | sed '1d')
     printf "
-new update available!:\n \e[1;32m$update\e[0m\n
+ay abat skip prach enter new update available!:\n \e[1;32m$update\e[0m\n
 "
     read -p $"(type u to update or Enter to skip..)
 update MiTool? : " u
     if [ "$u" == "u" ]; then
-        curl -s https://raw.githubusercontent.com//Gtajisan/Miui-tool/master/install.sh | sed -n '/files=("Miui-tool"/,/^done/p' | bash
-        mitool
+        curl -s https://raw.githubusercontent.com/Gtajisan/Miui-tool/master/install.sh | sed -n '/files=("Miui-tool"/,/^done/p' | bash
+        Miui-tool
     else
         echo "skip update .."
     fi
